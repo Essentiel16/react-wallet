@@ -1,0 +1,20 @@
+.otpTitle{
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    color: #0b2253;
+    margin: 24px 0px;
+}
+.otpInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.desc-one, .time{
+    color:  #6D7A98;
+    font-size: 14px;
+    text-align: center;
+}
+.time{
+    margin-top: 10px;
+}

@@ -1,0 +1,21 @@
+.inboxImage{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inboxSubdesc, .inboxDesc{
+  text-align: center;
+}
+.inboxDesc{
+  font-weight: 600;
+  color: #0B2253;
+  font-size: 32px;
+  margin-top: 24px;
+}
+.inboxSubdesc{
+  color: #6D7A98;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 16px;
+}

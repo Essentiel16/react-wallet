@@ -1,0 +1,38 @@
+:root{
+    --primary: #1F6AEC;
+    --white: #fff;
+    --disabled: rgb(206, 206, 206);
+}
+.form{
+    width: 528px;
+    background-color: var(--white);
+    border: 1px solid #dee3eb;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 32px;
+}
+.nameGroup{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    gap: 16px;
+
+}
+.link{
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 600;
+}
+.desc{
+    color:  #6D7A98;
+    font-size: 14px;
+}
+.password{
+    position: relative;
+}
+.passwordIcon{
+    position: absolute;
+    right: 15px;
+    top: 43px;
+}
