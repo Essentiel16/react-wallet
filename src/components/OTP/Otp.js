@@ -2,7 +2,7 @@ import React from 'react'
 import '../SignupForm/SignupForm'
 import './Otp.css'
 import { useHistory } from "react-router-dom"
-import axios from 'axios'
+import API from '../../uttils/API'
 import ReactCodeInput from 'react-verification-code-input';
 
 function Otp() {
@@ -13,7 +13,7 @@ function Otp() {
         let otp = Object.entries(data)
         .map((arr) => arr[1])
         .join('');
-        await axios.post('/auth/confirm-email', {otp}, {
+        await API.post('/auth/confirm-email', {otp}, {
             headers: {
                 common: {
                     Authorization: `Bearer ${token}`

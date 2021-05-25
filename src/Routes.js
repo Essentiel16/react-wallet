@@ -11,6 +11,7 @@ import Dashboard from "./components/Dashboard";
 import TableComponent from "./components/Table/TableComponent";
 import Password from './components/Password'
 import ResetWord from './components/ResetWord'
+import Sidebar from './components/Sidebar'
 
 
 function Routes() {
@@ -26,6 +27,7 @@ function Routes() {
       <Route exact path='/forgot' component={forgotPassword}/>
       <Route exact path='/password' component={ResetWord}/>
       <Route exact path='/resetForm' component={resetPassword}/>
+      <Route exact path='/sidebar' component={Sidebar}/>
     </Switch>
   );
 }
