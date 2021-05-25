@@ -6,7 +6,6 @@ import "./Login.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import API from '../../uttils/API'
-import Password from '../Password'
 
 function Login() {
   let history = useHistory();
@@ -25,7 +24,7 @@ function Login() {
     await API
       .post("/auth/login", data)
       .then((response) => {
-        const { loginToken, username, email, hasWallet } = response.data.data;
+        const { loginToken } = response.data.data;
         localStorage.setItem("Logintoken", loginToken);
         alert("Let's get you started");
       })

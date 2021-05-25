@@ -9,7 +9,6 @@ import resetPassword from './views/authSreens/resetPassword'
 import resetWaiting from './views/authSreens/resetWaiting'
 import Dashboard from "./components/Dashboard";
 import TableComponent from "./components/Table/TableComponent";
-import Password from './components/Password'
 import ResetWord from './components/ResetWord'
 import Sidebar from './components/Sidebar'
 
