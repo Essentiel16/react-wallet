@@ -1,0 +1,30 @@
+.welcome-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.funds {
+  width: 552px;
+  height: 96px;
+  background: #FFFFFF;
+  border: 1px solid #DEE3EB;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column nowrap; 
+  padding: 24px;
+}
+.funds > h2, .funds > p {
+  margin: 0px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  color: #0B2253;
+  margin-bottom: 8px;
+} 
+
+.funds > p {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: #6D7A98;
+}

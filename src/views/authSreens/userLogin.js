@@ -7,6 +7,7 @@ function userLogin() {
       <HomeStructure title="Log In" subtitle="Great to have you back">
       <Login/>
       </HomeStructure>
+      <button>Click me!</button>
     </div>
   )
 }
