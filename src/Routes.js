@@ -7,11 +7,11 @@ import createPin from "./views/authSreens/createPin";
 import forgotPassword from "./views/authSreens/forgotPassword"
 import resetPassword from './views/authSreens/resetPassword'
 import resetWaiting from './views/authSreens/resetWaiting'
-import Dashboard from "./components/Dashboard";
+import dashboard from './views/dashboard/userDashboard'
 import TableComponent from "./components/Table/TableComponent";
 import Password from './components/Password'
 import ResetWord from './components/ResetWord'
-import Sidebar from './components/Sidebar'
+import Dashboard from './components/DashboardLayout'
 
 
 function Routes() {
@@ -22,12 +22,12 @@ function Routes() {
       <Route exact path="/login" component={userLogin} />
       <Route exact path="/createPin" component={createPin} />
       <Route exact path="/reset" component={resetWaiting} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/table" component={TableComponent} />
       <Route exact path='/forgot' component={forgotPassword}/>
-      <Route exact path='/password' component={ResetWord}/>
       <Route exact path='/resetForm' component={resetPassword}/>
-      <Route exact path='/sidebar' component={Sidebar}/>
+      {/* <Route exact path='/password' component={ResetWord}/> */}
+      <Route exact path="/dashboard" component={dashboard} />
+      <Route exact path="/table" component={TableComponent} />
+      <Route exact path="/dash" component={Dashboard} />
     </Switch>
   );
 }

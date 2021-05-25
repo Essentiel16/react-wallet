@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .dashboard-main{
+  display: flex;
+      justify-content: space-between;
+      align-items: center;
+} */
