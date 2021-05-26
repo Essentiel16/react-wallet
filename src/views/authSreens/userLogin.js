@@ -1,7 +1,6 @@
 import React from 'react'
 import HomeStructure from '../../components/Layout'
 import Login from "../../components/Login"
-import Modal from '../../components/Modal'
 function userLogin() {
   return (
     <div>

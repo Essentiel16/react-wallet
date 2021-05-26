@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 function ForgotPassword() {
   let history = useHistory();
-  const { register, handleSubmit,formState: { isDirty, isValid, errors } } = useForm({
+  const { register, handleSubmit,formState: { isDirty, isValid } } = useForm({
     criteriaMode: "all",
     mode: "all",
   });

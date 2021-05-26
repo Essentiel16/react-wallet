@@ -3,14 +3,13 @@ import eye from '../../assets/eye-off.svg'
 import API from '../../uttils/API'
 import Button from "../Button";
 import Input from "../Input"
-import HomeStructure from '../Layout'
 import "./SignupForm.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
 function SignupForm() {
   let history = useHistory();
-  const { register, handleSubmit,formState: { isDirty, isValid, errors } } = useForm({
+  const { register, handleSubmit,formState: { isDirty, isValid } } = useForm({
     criteriaMode: "all",
     mode: "all",
   });
