@@ -23,7 +23,6 @@ function ForgotPassword() {
     const {token} = localStorage.getItem('Logintoken')
     await API.post('/auth/forgot-password', data)
     .then((response) => {
-      console.log('yea', response)
       if(response.data.status === 'Success') {
         notify()
         setTimeout(() => {

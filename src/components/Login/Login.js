@@ -39,7 +39,7 @@ function Login() {
                   history.push("/createPin");
                   }, 2000);
         }
-        const { loginToken, username, email, hasWallet } = response.data.data;
+        const { loginToken } = response.data.data;
         localStorage.setItem("Logintoken", loginToken);
       })
       .catch((error) => {

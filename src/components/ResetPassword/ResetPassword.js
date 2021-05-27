@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Input from '../Input'
 import Button from '../Button'
 import { useForm } from 'react-hook-form'
-import {useParams, useLocation} from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import API from '../../uttils/API';
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,6 +16,8 @@ function ResetPassword() {
 
   const [isButtonLoading, setIsButtonLoading] = useState(false);
 
+ 
+  
   const { register, handleSubmit } = useForm({
     criteriaMode: "all",
     mode: "all",
