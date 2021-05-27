@@ -3,18 +3,23 @@ import eye from '../../assets/eye-off.svg'
 import API from '../../uttils/API'
 import Button from "../Button";
 import Input from "../Input"
-import HomeStructure from '../Layout'
 import "./SignupForm.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 function SignupForm() {
-  let history = useHistory();
+  let router = useHistory();
+  const notify = () => toast.success("Account Successfully signed up", {position: toast.POSITION.TOP_RIGHT});
+
   const { register, handleSubmit,formState: { isDirty, isValid, errors } } = useForm({
     criteriaMode: "all",
     mode: "all",
   });
   const [passwordtype, setPasswordType] = useState(false);
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const passwordVisibility = () => {
     setPasswordType(passwordtype ? "text" : "password");
@@ -25,7 +30,15 @@ function SignupForm() {
     await API
       .post("/signup", data)
       .then((response) => {
-        console.log(response.data);
+        if(response.data.status === 'Success') {
+          notify()
+          setTimeout(() => {
+            router.push("/otp");
+          }, 2000);
+        }
+        else {
+          router.push("/")
+        }
         const { confirmation_token, email } = response.data.data;
         localStorage.setItem(
           "user-detail",
@@ -33,13 +46,13 @@ function SignupForm() {
         );
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.response.data.message, {position: toast.POSITION.TOP_RIGHT});
       });
-    history.push("/otp");
+    
   };
 
   return (
-    <div>
+    <>
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="nameGroup">
           <Input
@@ -100,13 +113,17 @@ function SignupForm() {
           <img onClick={passwordVisibility} src={eye} alt="eye-off" />
           </span>
         </div>
-        <Button disabled={!isDirty || !isValid}>Create Account</Button>
+        <Button disabled={!isDirty || !isValid} onClick={() => {
+        setIsButtonLoading(true)
+        setTimeout(() => {
+          setIsButtonLoading(false)
+        }, 1700)}} isLoading={isButtonLoading}>Create Account</Button>
         <p className="desc">
           Already have an account? <span className="link">Sign in</span>
         </p>
-
+        <ToastContainer />
       </form>
-    </div>
+    </>
   );
 }
 

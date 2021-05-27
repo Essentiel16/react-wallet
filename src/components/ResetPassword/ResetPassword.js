@@ -1,18 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Input from '../Input'
 import Button from '../Button'
 import { useForm } from 'react-hook-form'
 import {useParams, useLocation} from 'react-router-dom';
 import { useHistory } from "react-router-dom";
-
 import API from '../../uttils/API';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function ResetPassword() {
   let history = useHistory();
-  const useQuery = () => {
-    return new URLSearchParams(useLocation().search);
-  }
-  
+  const notify = () => toast.success("Password reset successful", {position: toast.POSITION.TOP_RIGHT});
+
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
+
   const { register, handleSubmit } = useForm({
     criteriaMode: "all",
     mode: "all",
@@ -20,23 +23,24 @@ function ResetPassword() {
   
   const location = useLocation()
   const token = location.search.split("=")[1]
-  console.log(token)
 
   const ResetPassword = async(data) => {
-    //const {token} = useParams()
-    // const token = useQuery()
     await API.post('/auth/reset-password', { password: data.password }, {
       headers: {
         Authorization: `Bearer ${token}`
     }
     } )
     .then((response) => {
-      console.log(response)
+      if(response.data.status === 'Success') {
+        notify()
+        setTimeout(() => {
+          history.push("/login")
+        }, 2000);
+      }
     })
     .catch((error) => {
-      console.log(error)
+      toast.error(error.response.data.message, {position: toast.POSITION.TOP_RIGHT});
     })
-    history.push("/login")
 
   }
   return (
@@ -56,7 +60,11 @@ function ResetPassword() {
             name="password"
             {...register('confirm_password')}
           />
-          <Button children="Reset Password"/>
+          <Button children="Reset Password" onClick={() => {
+        setIsButtonLoading(true)
+        setTimeout(() => {
+          setIsButtonLoading(false)
+        }, 1700)}} isLoading={isButtonLoading}/>
       </form>
     </div>
   )

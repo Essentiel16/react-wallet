@@ -1,4 +1,5 @@
 import React from 'react'
+import Loader from '../ButtonLoader'
 import './Button.css';
 
 const STYLES = [
@@ -16,6 +17,7 @@ const Button = ({
     buttonStyle,
     onClick,
     children,
+    isLoading,
     disabled
 }) =>
 {
@@ -24,10 +26,10 @@ const Button = ({
     return (
         <div>
             <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type} disabled={disabled}>
-                {children}
+                {isLoading ? <Loader/> : children}
             </button>
         </div>
     )
 }
-
 export default Button
+

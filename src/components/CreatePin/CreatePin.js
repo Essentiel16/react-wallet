@@ -5,10 +5,17 @@ import "../OTP/Otp.css";
 import ReactCodeInput from "react-verification-code-input";
 import { useHistory } from "react-router-dom";
 import API from '../../uttils/API'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+toast.configure()
 
 function CreatePin() {
   const history = useHistory();
+  const notify = () => toast.success("Pin created Successfully", {position: toast.POSITION.TOP_RIGHT})
   const [pin, setPin] = useState('')
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const createPin = async (event) => {
     event.preventDefault()
@@ -26,16 +33,20 @@ function CreatePin() {
         }
       )
       .then((response) => {
-        console.log(response.data);
+        if(response.data.status === "Success") {
+          notify()
+                setTimeout(() => {
+                  history.push("/dashboard")
+                  }, 2000);
+        }
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.response.data.message, {position: toast.POSITION.TOP_RIGHT})
       });
-      history.push("/dashboard")
   };
   return (
     <div>
-      <form className="form">
+      <form className="form" onSubmit={createPin}>
         <h3 className="otpTitle">
           Kindly create your <br></br>
           transaction Pin
@@ -50,9 +61,12 @@ function CreatePin() {
             />
 
         </div>
-        <Button type="submit" onClick={createPin} disabled={pin.length < 4}>
-          Create Pin
-        </Button>
+        <Button children="Create Pin" type="submit"  disabled={pin.length < 4} onClick={() => {
+        setIsButtonLoading(true)
+        setTimeout(() => {
+          setIsButtonLoading(false)
+        }, 1700)}} isLoading={isButtonLoading}/>
+        
       </form>
     </div>
   );

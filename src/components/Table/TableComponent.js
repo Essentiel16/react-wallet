@@ -3,7 +3,7 @@ import './TableComponent.css'
 
 function TableComponent() {
 
-  const data = [
+  const datas = [
     {id: "1", product_name: "Weetabix", product_category: "Cereal",unit_price: "501"},
     {id: "2",product_name: "Colgate Toothpaste",product_category: "Toiletries",unit_price: "119"},
     {id: "3",product_name: "Imperial Leather Soap",product_category: "Toiletries",unit_price: "235"},
@@ -28,7 +28,7 @@ function TableComponent() {
 
 
         <tbody className="table-body">
-        {data.map(data => (
+        {datas.map(data => (
           <tr className="table-body-row" key={data.index}>
               <td className="table-body-plain">{data.id}</td>
               <td className="table-body-plain">{data.product_name}</td>
