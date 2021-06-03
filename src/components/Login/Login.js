@@ -5,7 +5,7 @@ import eye from '../../assets/eye-off.svg'
 import "../SignupForm/SignupForm";
 import "./Login.css";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useHistory , Link} from "react-router-dom";
 import API from '../../uttils/API'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -67,14 +67,14 @@ function Login() {
           <img onClick={passwordVisibility} src={eye} alt="eye-off" />
           </span>
         </div>
-        <p className="forgotLink">Forgot Password?</p>
+        <p className="forgotLink"><Link to={'/forgot'}>Forgot Password?</Link></p>
         <Button onClick={() => {
         setIsButtonLoading(true)
         setTimeout(() => {
           setIsButtonLoading(false)
         }, 1700)}} isLoading={isButtonLoading}>Log In</Button>
         <p className="desc">
-          Don't have an account? <span className="link">Register now</span>
+          Don't have an account? <span className="link"><Link to={'/'}>Register now</Link></span>
         </p>
       </form>
     </div>

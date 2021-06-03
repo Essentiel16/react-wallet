@@ -7,7 +7,7 @@ import createPin from "./views/authSreens/createPin";
 import forgotPassword from "./views/authSreens/forgotPassword"
 import resetPassword from './views/authSreens/resetPassword'
 import resetWaiting from './views/authSreens/resetWaiting'
-// import dashboard from './views/dashboard/UserDashboard'
+import dashboard from './views/dashboard/UserDashboard'
 import transactionHistory from './views/dashboard/TransactionHistory'
 
 
@@ -23,7 +23,7 @@ function Routes() {
       <Route exact path="/reset" component={resetWaiting} />
       <Route exact path='/forgot' component={forgotPassword}/>
       <Route exact path='/resetForm' component={resetPassword}/>
-      {/* <Route exact path="/dashboard" component={dashboard} /> */}
+      <Route exact path="/dashboard" component={dashboard} />
       <Route exact path="/history" component={transactionHistory} />
     </Switch>
   );

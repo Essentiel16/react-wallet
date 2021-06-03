@@ -36,3 +36,6 @@
     right: 15px;
     top: 43px;
 }
+a{
+    color: var(--primary);
+}

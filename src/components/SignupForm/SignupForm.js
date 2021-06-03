@@ -5,7 +5,7 @@ import Button from "../Button";
 import Input from "../Input"
 import "./SignupForm.css";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -126,7 +126,7 @@ function SignupForm() {
           setIsButtonLoading(false)
         }, 1700)}} isLoading={isButtonLoading}>Create Account</Button>
         <p className="desc">
-          Already have an account? <span className="link">Sign in</span>
+          Already have an account? <span className="link"><Link to={'/login'}>Sign in</Link></span>
         </p>
         <ToastContainer />
       </form>
