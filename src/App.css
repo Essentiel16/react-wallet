@@ -3,3 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.title-header{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.002em;
+  color: #0B2253;
+  margin-top: 32px;
+  }
+  .wallet-input{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    gap: 30px;
+}
+.wallet-input label{
+    margin-left: -12px;
+}
+.input-field{
+  margin-top: 32px;
+}
+.input-field-button{
+  width: 432px;
+}

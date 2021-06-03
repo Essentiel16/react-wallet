@@ -7,25 +7,24 @@ import createPin from "./views/authSreens/createPin";
 import forgotPassword from "./views/authSreens/forgotPassword"
 import resetPassword from './views/authSreens/resetPassword'
 import resetWaiting from './views/authSreens/resetWaiting'
-import dashboard from './views/dashboard/userDashboard'
-import TableComponent from "./components/Table/TableComponent";
-import Dashboard from './components/DashboardLayout'
+import dashboard from './views/dashboard/UserDashboard'
+import transactionHistory from './views/dashboard/TransactionHistory'
+
 
 
 function Routes() {
+
   return (
     <Switch>
       <Route exact path="/" component={userSignup} />
-      <Route exact path="/otp" component={emailVerification} />
+      <Route exact path="/otp" component={emailVerification}  />
       <Route exact path="/login" component={userLogin} />
       <Route exact path="/createPin" component={createPin} />
       <Route exact path="/reset" component={resetWaiting} />
       <Route exact path='/forgot' component={forgotPassword}/>
       <Route exact path='/resetForm' component={resetPassword}/>
-      {/* <Route exact path='/password' component={ResetWord}/> */}
       <Route exact path="/dashboard" component={dashboard} />
-      <Route exact path="/table" component={TableComponent} />
-      <Route exact path="/dash" component={Dashboard} />
+      <Route exact path="/history" component={transactionHistory} />
     </Switch>
   );
 }

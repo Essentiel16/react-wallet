@@ -14,6 +14,13 @@ function Otp() {
     let history = useHistory();
     const notify = () => toast.success("Account verified successfully", {position: toast.POSITION.TOP_RIGHT})
 
+    // const [signedup, setSignedup] = useState(false)
+
+    // const ProtectedComponent = () => {
+    //     setSignedup(signedup ? true : false);
+    //     setSignedup(!signedup);
+    //       return <Redirect to='/login'  />
+    //     }
     const verify = async(data) => {
         const { token } = JSON.parse(localStorage.getItem('user-detail'))
         let otp = Object.entries(data)
@@ -27,6 +34,8 @@ function Otp() {
             }
         })
         .then((response) => {
+            const userOtp = response.data.data
+            console.log(userOtp)
             if(response.data.status === 'Success') {
                 notify()
                 setTimeout(() => {
@@ -38,6 +47,7 @@ function Otp() {
             toast.error(error.response.data.message, {position: toast.POSITION.TOP_RIGHT});
         })
     }
+
 
     const resendOtp = async(data) => {
         const { email } = JSON.parse(localStorage.getItem('user-detail'))
@@ -53,7 +63,7 @@ function Otp() {
     }
 
     return (
-        <div>
+        <>
             <form className="form">
                 <h3 className="otpTitle">
                     Kindly enter your OTP to <br></br>
@@ -65,7 +75,7 @@ function Otp() {
                 <p className="desc-one">Didn't get the code? <span className="link" onClick={resendOtp}>Resend</span></p>
                 <p className="time">00:59</p>
             </form>
-        </div>
+        </>
     )
 }
 

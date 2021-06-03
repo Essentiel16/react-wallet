@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   overflow: auto; /* Enable scroll if needed */
-  padding-top: 250px; /* Location of the content container */
+  /* Location of the content container */
   color: #3A434B;
 }
 
@@ -16,14 +16,19 @@
       background-color: white;
       width: 50%; /* Width in proportion to its parent container*/
       max-width: 400px; /* Max width where it stops expanding */
-      height: 232px; /* Height in proportion to its parent container */
-      margin: auto; /* Auto margin according to the element width */
-      padding: 10px;
+      height: 100%; /* 232px Height in proportion to its parent container */
+      margin: auto; /*Auto margin according to the element width */
+      /* padding: 10px; */
       border: 1px solid rgba(22, 42, 86, 0.05);
       box-sizing: border-box;
       box-shadow: 0px 7.52055px 16.7123px rgba(171, 180, 189, 0.23);
       border-radius: 4px;
       padding: 24px;
+      right: 0;
+      position: absolute;
+      animation-name: modalopen;
+      animation-duration: 1s;
+
 }
 
 .close {
@@ -74,6 +79,11 @@
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+@keyframes modalopen{
+  from { opacity: 0;}
+  to { opacity: 1;}
 }
 
 @media only screen and (max-width: 600px) {

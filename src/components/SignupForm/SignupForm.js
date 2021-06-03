@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import eye from '../../assets/eye-off.svg'
 import API from '../../uttils/API'
 import Button from "../Button";
@@ -20,16 +20,25 @@ function SignupForm() {
   });
   const [passwordtype, setPasswordType] = useState(false);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
+  const [userDetail, setUserDetail] = useState('')
 
   const passwordVisibility = () => {
     setPasswordType(passwordtype ? "text" : "password");
     setPasswordType(!passwordtype);
   };
 
-  const onSubmit = async (data) => {
+
+  useEffect(() => {
+    signUp();
+}, []);
+
+  const signUp = async (data) => {
     await API
       .post("/signup", data)
       .then((response) => {
+        const userRes = response.data.data
+        console.log(userRes)
+        setUserDetail(userRes)
         if(response.data.status === 'Success') {
           notify()
           setTimeout(() => {
@@ -39,10 +48,10 @@ function SignupForm() {
         else {
           router.push("/")
         }
-        const { confirmation_token, email } = response.data.data;
+        const { confirmation_token, email, first_name, last_name } = response.data.data;
         localStorage.setItem(
           "user-detail",
-          JSON.stringify({ token: confirmation_token, email: email })
+          JSON.stringify({ token: confirmation_token, email: email, firstName: first_name, lastName: last_name })
         );
       })
       .catch((error) => {
@@ -53,7 +62,7 @@ function SignupForm() {
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(signUp)}>
         <div className="nameGroup">
           <Input
             type="text"
@@ -62,6 +71,7 @@ function SignupForm() {
             name="firstname"
             {...register("firstName", {required: true})}
           />
+          <p>{userDetail.first_name}</p>
           <Input
             type="text"
             label="Last Name"

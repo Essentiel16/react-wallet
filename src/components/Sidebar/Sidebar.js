@@ -6,20 +6,23 @@ import profile from "../../assets/profile.svg";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
 
-function Sidebar(navItems) {
+function Sidebar() {
   return (
     <aside className="sidebar-container">
       <div className="sidebar">
         <div className="logo-div">
           {/* eslint-disable-next-line */}
-          <Link to="">
-            <img src={logo} alt=""></img>
+          <Link to="/login">
+            <div>
+            <img src={logo} alt=""/>
+
+            </div>
             <p className="logo-item">Wallet</p>
           </Link>
         </div>
         <div>
           <ul className="sidebar-menu">
-            <Link to="">
+            <Link to="/dashboard">
               <li className="sidebar-menu-list">
                 <div className="menu-flex-item">
                   <img src={home} alt="" className="item-one"></img>
@@ -27,7 +30,7 @@ function Sidebar(navItems) {
                 <div className="sidebar-item">Home</div>
               </li>
             </Link>
-            <Link to="">
+            <Link to="/history">
               <li className="sidebar-menu-list">
                 <div className="menu-flex-item">
                   <img src={history} alt="" className="item-two"></img>
@@ -51,3 +54,6 @@ function Sidebar(navItems) {
 }
 
 export default Sidebar;
+
+
+

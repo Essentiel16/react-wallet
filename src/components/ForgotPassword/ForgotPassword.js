@@ -20,7 +20,6 @@ function ForgotPassword() {
     mode: "all",
   });
   const recoverPassword = async (data) => {
-    const {token} = localStorage.getItem('Logintoken')
     await API.post('/auth/forgot-password', data)
     .then((response) => {
       if(response.data.status === 'Success') {

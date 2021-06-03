@@ -10,11 +10,8 @@
 }
 .table__header {
 	background-color: #F1F4F8;
-    height: 56px;
+    height: 30px;
     border-collapse: collapse;
-}
-.table__header-row{
-    
 }
 .table__header-item {
 	font-weight: 500;
@@ -25,12 +22,11 @@
     color: #0B2253;
 }
 .table-body{
-    background-color: #fff;
-	
+    background-color: #fff;  
 }
 .table-body-row{
-    height: 65px;
-    border-bottom: 1px solid #f8f9fb;
+    height: 60px;
+    border-bottom: 2px solid #f8f9fb;
 }
 .table-body-plain{
     color: #0B2253;
@@ -41,6 +37,8 @@
 }
 .time{
     color: #6D7A98;
+    font-size: 16px;
+    font-weight: 400;
 }
 .successful, .failed{
     color: #1E944D;

@@ -33,6 +33,8 @@ function CreatePin() {
         }
       )
       .then((response) => {
+        const userPin = response.data.data
+        console.log(userPin)
         if(response.data.status === "Success") {
           notify()
                 setTimeout(() => {

@@ -1,11 +1,11 @@
 .nav-header{
-  /* width: calc(100vw-248px); */
   height: 64px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 30px;
+  width: 100%;
 }
 .nav-header p{
   margin-left: 44px;

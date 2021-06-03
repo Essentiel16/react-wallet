@@ -7,7 +7,6 @@ import "./Login.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import API from '../../uttils/API'
-import Password from '../Password'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,7 +28,7 @@ function Login() {
     setPasswordType(!passwordtype);
   };
   const login = async (data) => {
-    console.log(data);
+
     await API
       .post("/auth/login", data)
       .then((response) => {

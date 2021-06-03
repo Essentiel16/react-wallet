@@ -1,11 +1,13 @@
-// import React from 'react'
+import React from 'react'
 import styles from '../Modal/Modal.module.css'
 
-const Modal = ({showModal, closeModal, header, children}) => {
+const Modal = (props) => {
+  const {showModal, closeModal, header, children, ...rest} = props
+
   return (
     <>
       {showModal && <div className={styles.modal}>
-            <div className={styles.modalContent}>
+            <div className={styles.modalContent} {...rest}>
                 <div className={styles.headerContent}>
                     <p className={styles.headerText}>{header}</p>
                     <span className={styles.close} onClick={closeModal}>&times;</span>
