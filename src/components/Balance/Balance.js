@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import './Balance.css'
-import userProfile from '../Header/Header'
 import API from "../../uttils/API";
 
 function Balance() {

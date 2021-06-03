@@ -1,12 +1,7 @@
 import React from 'react'
 import "../../components/DashboardLayout/DashboardLayout.css";
-import { useForm } from "react-hook-form";
 
 function RadioInput() {
-  const { register, handleSubmit } = useForm({
-    criteriaMode: "all",
-    mode: "all",
-  });
   return (
     <>
       <div className="wallet-input">

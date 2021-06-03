@@ -4,7 +4,7 @@ import './Otp.css'
 import { useHistory } from "react-router-dom"
 import API from '../../uttils/API'
 import ReactCodeInput from 'react-verification-code-input';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 

@@ -34,7 +34,7 @@ function TableComponent({ item }) {
 
                 <td className="table-body-plain">
                   <div className="successful">
-                    <img className="icon" src={success} />
+                    <img className="icon" src={success} alt=""/>
                     {item?.transaction_status}
                   </div>
                 </td>

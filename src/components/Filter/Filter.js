@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
@@ -10,9 +10,9 @@ function Filter() {
     mode: "all",
   });
   const [isButtonLoading, setIsButtonLoading] = useState(false);
-  const [history, setHistory] = useState({
-    historyData: []
-  })
+  // const [history, setHistory] = useState({
+  //   historyData: []
+  // })
 
   // useEffect(() => {
   //   filterWallet();
@@ -23,11 +23,12 @@ function Filter() {
       headers: { common: { Authorization: `Bearer ${token}` } },
     })
       .then((response) => {
-        const historyData = response.data.data;
-        setHistory({ historyData });
-        console.log(setHistory({ historyData }));
+        // const historyData = response.data.data;
+        // setHistory({ historyData });
+        // console.log(setHistory({ historyData }));
         if (response.data.status === "Success") {
-          history = historyData;
+          // history = historyData;
+          // console.log(history)
         }
       })
       .catch((error) => {

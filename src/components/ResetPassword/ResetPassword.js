@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useLocation} from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import API from '../../uttils/API';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import API from '../../uttils/API'
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
@@ -15,7 +15,7 @@ function ForgotPassword() {
   let history = useHistory();
   const notify = () => toast.success("Successful!", {position: toast.POSITION.TOP_RIGHT});
   const [isButtonLoading, setIsButtonLoading] = useState(false);
-  const { register, handleSubmit,formState: { isDirty, isValid, errors } } = useForm({
+  const { register, handleSubmit,formState: { isDirty, isValid} } = useForm({
     criteriaMode: "all",
     mode: "all",
   });

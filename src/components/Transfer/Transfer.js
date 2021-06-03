@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import Loader from '../../components/ButtonLoader'
 import "../../components/DashboardLayout/DashboardLayout.css";
 import { useForm } from "react-hook-form";
 import API from "../../uttils/API";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RadioInput from "../RadioInput/RadioInput";
 
@@ -25,14 +24,14 @@ function Transfer({closeModal}) {
   const [isButtonLoading, setIsButtonLoading] = useState(false);
   const token = localStorage.getItem("Logintoken");
 
-  const recepientValidate =  async(data) => {
-    await API.post('/wallet/validate-receiver', data.recipientUsername, {headers: {
-      common: {
-        Authorization: `Bearer ${token}`,
-      },
-    },
-  })
-}
+//   const recepientValidate =  async(data) => {
+//     await API.post('/wallet/validate-receiver', data.recipientUsername, {headers: {
+//       common: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     },
+//   })
+// }
   // amountValidate() {
   //   let balance = this.currentUser.balance;
   //   if (data.amount > balance) {

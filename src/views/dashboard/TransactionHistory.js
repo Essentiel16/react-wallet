@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import DashboardLayout from "../../components/DashboardLayout";
 import Input from "../../components/Input"
-import Pagination from '../../components/Pagination'
 import Modal from '../../components/Modal'
 import Table from "../../components/Table";
 import Filter from '../../components/Filter'
@@ -44,10 +43,10 @@ function TransactionHistory() {
           <div className="transaction-util">
             <div className="search">
             <Input type="text" placeholder="Search by name"/>
-            <img className="search-icon" src={search}/>
+            <img className="search-icon" src={search} alt=""/>
             </div>
             <div className="filter" onClick={() => setModal(true)}><p>Filter</p>
-            <img className="filter-icon" src={filter}/>
+            <img className="filter-icon" src={filter} alt=""/>
             </div>
           </div>
         </div>

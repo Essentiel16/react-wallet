@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import eye from '../../assets/eye-off.svg'
 import API from '../../uttils/API'
 import Button from "../Button";
@@ -14,7 +14,7 @@ function SignupForm() {
   let router = useHistory();
   const notify = () => toast.success("Account Successfully signed up", {position: toast.POSITION.TOP_RIGHT});
 
-  const { register, handleSubmit,formState: { isDirty, isValid, errors } } = useForm({
+  const { register, handleSubmit,formState: { isDirty, isValid } } = useForm({
     criteriaMode: "all",
     mode: "all",
   });
@@ -28,9 +28,6 @@ function SignupForm() {
   };
 
 
-  useEffect(() => {
-    signUp();
-}, []);
 
   const signUp = async (data) => {
     await API
