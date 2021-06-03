@@ -10,18 +10,19 @@ import RadioInput from "../RadioInput/RadioInput";
 
 toast.configure();
 
-function Transfer({closeModal}) {
-
-  const [showModal, setShowModal] = useState(false);
+function Transfer() {
 
   const notify = () =>
-    toast.success("Deposit successful", { position: toast.POSITION.TOP_RIGHT });
-
+  toast.success("Transfer successful", { position: toast.POSITION.TOP_RIGHT });
+  
   const { register, handleSubmit } = useForm({
     criteriaMode: "all",
     mode: "all",
   });
+
+  // const [showModal, setShowModal] = useState(false);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
+
   const token = localStorage.getItem("Logintoken");
 
 //   const recepientValidate =  async(data) => {
@@ -61,8 +62,6 @@ function Transfer({closeModal}) {
         if (response.data.status === "Success") {
           notify();
         }
-        closeModal=() => setShowModal(false)
-        // setShowModal(true)
       })
       .catch((error) => {
         toast.error(error.response.data.message, {
