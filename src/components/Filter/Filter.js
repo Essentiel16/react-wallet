@@ -10,22 +10,25 @@ function Filter() {
     mode: "all",
   });
   const [isButtonLoading, setIsButtonLoading] = useState(false);
+  const [history, setHistory] = useState({
+    historyData: []
+  })
 
   // useEffect(() => {
   //   filterWallet();
   // }, []);
   const filterWallet = async (data) => {
     const token = localStorage.getItem("Logintoken");
-    await API.post("/wallet/filtered-transaction-history?", data, {
+    await API.post("/wallet/filtered-transaction-history", data, {
       headers: { common: { Authorization: `Bearer ${token}` } },
     })
       .then((response) => {
-        const transaction = response.data.data
-        console.log(transaction)
-        // if (response.data.status === 'Success') {
-        //   transaction = 
-        // }
-
+        const historyData = response.data.data;
+        setHistory({ historyData });
+        console.log(setHistory({ historyData }));
+        if (response.data.status === "Success") {
+          history = historyData;
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -64,13 +67,23 @@ function Filter() {
         </div>
         <h6 className="status-header">Transaction Status</h6>
         <div className="wallet-input">
-            <input type="radio"  name="transactionStatus" value="successful" {...register("transactionStatus")}/>
-            <label htmlFor="successful">Successful</label>
-            <br />
-            <input type="radio"  name="transactionStatus" value="failed"  {...register("transactionStatus")}/>
-            <label htmlFor="failed">Failed</label>
-            <br />
-          </div>
+          <input
+            type="radio"
+            name="transactionStatus"
+            value="successful"
+            {...register("transactionStatus")}
+          />
+          <label htmlFor="successful">Successful</label>
+          <br />
+          <input
+            type="radio"
+            name="transactionStatus"
+            value="failed"
+            {...register("transactionStatus")}
+          />
+          <label htmlFor="failed">Failed</label>
+          <br />
+        </div>
         <div style={{ marginTop: "32px" }}>
           <Button
             children="Apply Search"
