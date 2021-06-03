@@ -8,7 +8,7 @@ import forgotPassword from "./views/authSreens/forgotPassword"
 import resetPassword from './views/authSreens/resetPassword'
 import resetWaiting from './views/authSreens/resetWaiting'
 import userDashboard from './views/dashboard/userDashboard'
-import transactionHistory from './views/dashboard/transactionHistory'
+import transactionHistory from './views/dashboard/TransactionHistory'
 
 
 
