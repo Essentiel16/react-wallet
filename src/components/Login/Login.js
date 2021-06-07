@@ -68,11 +68,11 @@ function Login() {
           </span>
         </div>
         <p className="forgotLink"><Link to={'/forgot'}>Forgot Password?</Link></p>
-        <Button onClick={() => {
+        <Button children="Log In"onClick={() => {
         setIsButtonLoading(true)
         setTimeout(() => {
           setIsButtonLoading(false)
-        }, 1700)}} isLoading={isButtonLoading}>Log In</Button>
+        }, 1700)}} isLoading={isButtonLoading}/>
         <p className="desc">
           Don't have an account? <span className="link"><Link to={'/'}>Register now</Link></span>
         </p>

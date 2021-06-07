@@ -1,14 +1,21 @@
 {
   "name": "wallet",
+  "jest": {
+    "verbose": true
+  },
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.14.3",
     "@hookform/error-message": "^2.0.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "babel-jest": "^27.0.2",
     "cross-env": "^7.0.3",
+    "jest": "^27.0.4",
     "moment": "^2.29.1",
     "netlify-cli": "^3.30.7",
     "react": "^17.0.2",
@@ -22,12 +29,13 @@
     "react-toastify": "^7.0.4",
     "react-verification-code-input": "^1.2.9",
     "redux": "^4.1.0",
+    "ts-jest": "^27.0.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "PORT=8080 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,5 +55,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13"
   }
 }

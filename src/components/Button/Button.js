@@ -24,11 +24,9 @@ const Button = ({
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]
     const checkButtonSize = STYLES.includes(buttonSize) ? buttonSize : SIZES[0]
     return (
-        <div>
             <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type} disabled={disabled}>
                 {isLoading ? <Loader/> : children}
             </button>
-        </div>
     )
 }
 export default Button
